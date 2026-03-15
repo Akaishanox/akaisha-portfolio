@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akaisha Gurung | About</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Akaisha Gurung</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="about.html">About</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section-card">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Hi, I’m Akaisha Gurung. I’m a first-year Computing with Artificial Intelligence
+        & Machine Learning student at Technological University Dublin.
+      </p>
+      <p>
+        Right now I’m building my skills across software development, web development,
+        databases, infrastructure, and other computing-focused areas through my degree.
+      </p>
+      <p>
+        I’m especially interested in cybersecurity because I like understanding how
+        systems can be protected properly instead of just built and left vulnerable.
+        I also find it interesting how artificial intelligence is starting to connect
+        with so many parts of technology and everyday life.
+      </p>
+      <p>
+        I also enjoy creative work and presenting things in a way that feels polished
+        and personal, which is why I wanted this portfolio website to feel cute while
+        still looking professional.
+      </p>
+
+      <div class="tag-list">
+        <span class="tag">Artificial Intelligence</span>
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Databases</span>
+        <span class="tag">Software Development</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Akaisha Gurung</p>
+  </footer>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const dot = document.createElement("div")
+dot.className = "cursor-dot"
+
+const ring = document.createElement("div")
+ring.className = "cursor-ring"
+
+document.body.appendChild(dot)
+document.body.appendChild(ring)
+
+let mouseX = 0
+let mouseY = 0
+let ringX = 0
+let ringY = 0
+let lastHeart = 0
+
+window.addEventListener("mousemove", e => {
+
+mouseX = e.clientX
+mouseY = e.clientY
+
+dot.style.left = mouseX + "px"
+dot.style.top = mouseY + "px"
+
+const now = Date.now()
+
+if (window.innerWidth > 700 && now - lastHeart > 70) {
+
+lastHeart = now
+
+const heart = document.createElement("div")
+heart.className = "heart"
+heart.innerText = Math.random() > 0.5 ? "♡" : "♥"
+
+heart.style.left = mouseX + "px"
+heart.style.top = mouseY + "px"
+
+heart.style.color = Math.random() > 0.5 ? "#ff8fbc" : "#f4a6c8"
+
+document.body.appendChild(heart)
+
+setTimeout(() => {
+heart.remove()
+}, 900)
+
+}
+
+})
+
+function animateRing(){
+
+ringX += (mouseX - ringX) * 0.18
+ringY += (mouseY - ringY) * 0.18
+
+ring.style.left = ringX + "px"
+ring.style.top = ringY + "px"
+
+requestAnimationFrame(animateRing)
+
+}
+
+animateRing()
+
+})
+
+</script>
+
+</body>
+</html>
+
